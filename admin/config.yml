@@ -86,3 +86,15 @@ collections:
           - { label: "Site Title", name: "title", widget: "string", hint: "Your site's title, used for branding and SEO." }
           - { label: "Site Description", name: "description", widget: "text", hint: "Your site's description, used for SEO." }
           - { label: "Site URL", name: "url", widget: "string", hint: "Your live site's full URL." }
+  
+  - name: "locations"
+    label: "Map Locations"
+    folder: "locations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Latitude", name: "lat", widget: "number", value_type: "float"}
+      - {label: "Longitude", name: "lng", widget: "number", value_type: "float"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
