@@ -8,8 +8,8 @@
 # Enter your GitHub repo path and branch (defaults to master)
 backend:
   name: github
-  repo: danurbanowicz/eleventy-sveltia-cms-starter
-  branch: master
+  repo: stellargenertaions / mapus2
+  branch: main
 
 # The folder used to store uploaded images
 media_folder: "assets/img"
