@@ -1,13 +1,11 @@
 ---
-title: Map
+title: 
 layout: layouts/page.njk
 permalink: /map/
 eleventyNavigation:
   key: Map
   order: 3
 ---
-
-# Interactive Map
 
 <div id="map" style="height: 100%; width: 100%;"></div>
 
