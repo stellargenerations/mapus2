@@ -16,7 +16,7 @@ eleventyNavigation:
 
 <script>
   // Initialize the map
-  const map = L.map('map').setView([40.7128, -74.0060], 13);
+  const map = L.map('map').setView([39.8283, -98.5795], 4);
   
   // Add OpenStreetMap tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
