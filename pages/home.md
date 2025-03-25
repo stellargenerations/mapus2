@@ -8,14 +8,25 @@ eleventyNavigation:
   title: Home
   order: 0
 ---
-This is a template for building a simple blog website with [Eleventy](https://www.11ty.dev), [Sveltia CMS](https://github.com/sveltia/sveltia-cms), and with automatic deployment to [Netlify](https://www.netlify.com).
 
-The aim is to get you up and running in a few minutes with a free, fast, and secure blog website with a CMS for editing your content.
+<div id="map" style="height: 1000px; width: 100%;"></div>
 
-[Login to Sveltia CMS with GitHub](/admin/) (requires repo push access)
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
+<script>
+  // Initialize the map
+  const map = L.map('map').setView([39.8283, -98.5795], 4.5);
+  
+  // Add OpenStreetMap tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  
+  // For now, add a single marker
+  L.marker([40.7128, -74.0060])
+    .addTo(map)
+    .bindPopup("New York City");
+</script>
 
-Or click the button below to deploy your own copy of this project to Netlify.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
+[Login to Sveltia CMS](/admin/) (requires repo push access)
