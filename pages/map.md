@@ -6,4 +6,5 @@ permalink: /map/index.html
 
 # Interactive Map
 
-{% include "components/map.njk" %}
+{% set mapMarkers = mapLocations %}
+{% include "components/map.njk" with markers = mapMarkers %}
