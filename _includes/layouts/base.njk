@@ -1,4 +1,106 @@
 <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Map Site</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  
+  <!-- Custom CSS -->
+  <style>
+    .map-container {
+      height: 500px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">My Map Site</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <!-- Bootstrap Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Map</li>
+      </ol>
+    </nav>
+
+    <h1>My Interactive Map</h1>
+    
+    <!-- Map Container -->
+    <div id="map" class="map-container"></div>
+    
+    <!-- Bootstrap Card for additional info -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">About This Map</h5>
+            <p class="card-text">This interactive map shows key locations in our area.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Map Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the map
+      var map = L.map('map').setView([37.7749, -122.4194], 13);
+      
+      // Add base map layer
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      
+      // Add markers
+      var locations = [
+        {lat: 37.7749, lng: -122.4194, name: "Location 1"},
+        {lat: 37.7833, lng: -122.4167, name: "Location 2"}
+      ];
+      
+      locations.forEach(function(loc) {
+        L.marker([loc.lat, loc.lng])
+          .addTo(map)
+          .bindPopup(loc.name);
+      });
+    });
+  </script>
+</body>
+</html>
+
 <html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
 
 	{% include "components/head.njk" %}
